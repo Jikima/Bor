@@ -4,8 +4,6 @@
 >
 ---
 > **Warning**
-> #### 2023-04-01 Only Plus account can access Unofficial model
-> #### 2023-03-27 Bard now supported
 >
 > #### 2023-03-18 GPT-4 is now supported and the dependency packages have been updated. Please reinstall the dependencies once again
 >
@@ -33,7 +31,6 @@
    * `OFFICIAL-GPT-4.0`: GPT-4.0 model (make sure your account can access gpt-4 model)
    * `Website ChatGPT-3.5`: Website ChatGPT-3.5 model (UNOFFICIAL)
    * `Website ChatGPT-4.0`: Website ChatGPT-4.0 model (UNOFFICIAL)(available if you got a plus account)
-   * `Bard`: Google Bard Model
 
 ### Chat
 
@@ -110,51 +107,29 @@
 
 ## Step 2: Website ChatGPT authentication - 2 approaches
 
-* 2023-04-01: Only Support Plus Account now
+* **If you are using a Plus account, please modify `UNOFFICIAL_PAID` to `"True"` in your `.env` file**
 
 ### Email/Password authentication (Not supported for Google/Microsoft accounts)
+1. Create an account on https://chat.openai.com/chat
 
-1. Create an account on https://chat.openai.com/chat and open it
+2. Save your email into `.env` under `OPENAI_EMAIL`
 
-2.  Open console with `F12`
-3.  Open `Application` tab > Cookies
+3. Save your password into `.env` under `OPENAI_PASSWORD`
 
-   ![image](https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png)
+4. You're all set for [Step 3](#step-3-run-the-bot-on-the-desktop)
 
-4. Copy the value for `_puid` from cookies and paste it into `.env` under `PUID`
-
-5. Save your email into `.env` under `OPENAI_EMAIL`
-
-6. Save your password into `.env` under `OPENAI_PASSWORD`
-
-7. You're all set for [Step 3](#step-3-run-the-bot-on-the-desktop)
-
-### ACCESS token authentication
-1. Open https://chat.openai.com/api/auth/session
+### Session token authentication
+1. Go to https://chat.openai.com/chat log in
 
 2. Open console with `F12`
 
-3. Open `Application` tab > Cookies
+2. Open `Application` tab > Cookies
 
-   ![image](https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png)
+    ![image](https://user-images.githubusercontent.com/36258159/205494773-32ef651a-994d-435a-9f76-a26699935dac.png)
 
-4. Copy the value for `_puid` from cookies and paste it into `.env` under `PUID`
+3. Copy the value for `__Secure-next-auth.session-token` from cookies and paste it into `.env` under `SESSION_TOKEN`
 
-
-5. Copy the value for `accessToken` from cookies and paste it into `.env` under `ACCESS_TOKEN`
-
-6. You're all set for [Step 3](#step-3-run-the-bot-on-the-desktop)
-
-## Step 2: Google Bard authentication
-1. Go to https://bard.google.com/
-
-2. Open console with `F12`
-
-3. Open `Application` tab > Cookies
-
-4. Copy the value for `__Secure-1PSID` from cookies and paste it into `.env` under `BARD_SESSION_ID`
-
-5. You're all set for [Step 3](#step-3-run-the-bot-on-the-desktop)
+4. You're all set for [Step 3](#step-3-run-the-bot-on-the-desktop)
 
 ## Step 3: Run the bot on the desktop
 
@@ -179,11 +154,11 @@
 ## Optional: Disable logging
 
 * Set the value of `LOGGING` in the `.env` to False
-## Optional: Setup system prompt
+## Optional: Setup starting prompt
 
-* A system prompt would be invoked when the bot is first started or reset
-* You can set it up by modifying the content in `system_prompt.txt`
-* All the text in the file will be fired as a prompt to the bot
+* A starting prompt would be invoked when the bot is first started or reset
+* You can set it up by modifying the content in `starting-prompt.txt`
+* All the text in the file will be fired as a prompt to the bot  
 * Get the first message from ChatGPT in your discord channel!
 
    1. Right-click the channel you want to recieve the message, `Copy  ID`
@@ -191,7 +166,7 @@
         ![channel-id](https://user-images.githubusercontent.com/89479282/207697217-e03357b3-3b3d-44d0-b880-163217ed4a49.PNG)
 
    2. paste it into `.env` under `DISCORD_CHANNEL_ID`
-
+   
  ---
- [**中文說明**](https://zero6992.github.io/2023/03/09/chatGPT-discord-bot-chinese/)
+ [**中文說明**](https://zero6992.github.io/posts/chatgpt-discord-bot-chinese/)
 
